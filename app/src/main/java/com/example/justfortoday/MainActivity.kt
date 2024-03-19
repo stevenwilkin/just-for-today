@@ -56,7 +56,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayCurrentEntry() {
         CoroutineScope(Dispatchers.IO).launch {
-            val entry = entries.getAll().first()
+            val now = LocalDate.now()
+            val entry = entries.findByMonthAndDay(now.month.ordinal + 1, now.dayOfMonth)
+
             runOnUiThread {
                 textTitle.text = entry.title.toString()
                 textContent.text = Html.fromHtml(entry.content.toString(), Html.FROM_HTML_MODE_COMPACT)

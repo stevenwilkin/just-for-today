@@ -5,6 +5,6 @@ import androidx.room.Query
 
 @Dao
 interface EntryDao {
-    @Query("SELECT * FROM jft")
-    fun getAll(): List<Entry>
+    @Query("SELECT * FROM jft WHERE month = :month AND day = :day")
+    fun findByMonthAndDay(month: Int, day: Int): Entry
 }

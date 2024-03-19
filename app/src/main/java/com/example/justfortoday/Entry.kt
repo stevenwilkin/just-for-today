@@ -2,9 +2,10 @@ package com.example.justfortoday
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "jft")
+@Entity(tableName = "jft", indices = [Index(value = ["month", "day"], unique = true)])
 data class Entry(
     @PrimaryKey
     val id: Int?,
