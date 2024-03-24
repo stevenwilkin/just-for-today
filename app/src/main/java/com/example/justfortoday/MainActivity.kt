@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
             runOnUiThread {
                 textTitle.text = entry.title.toString()
-                textContent.text = Html.fromHtml(entry.content.toString(), Html.FROM_HTML_MODE_COMPACT)
+                textContent.text = entry.content.toString()
 
                 val formatter = DateTimeFormatter.ofPattern("MMMM d")
                 val date = LocalDate.of(LocalDate.now().year, entry.month ?: 1, entry.day ?: 1)
